@@ -1,6 +1,7 @@
 {
   "master_ip":"127.0.0.1",
   "master_port":8000,
-  "register":"/minion/1/register",
+  "register":"/api/1/register",
+  "tasks":"/api/1/tasks",
   "https":0
 }
