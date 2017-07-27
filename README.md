@@ -6,7 +6,7 @@ The purpose of this program is to simulate user interaction in a dynamic forensi
 v0.01 Basic Tasks
 
 * openfile
-* cmd
+* exec_cmd
 * download_file
 * visit_site
 

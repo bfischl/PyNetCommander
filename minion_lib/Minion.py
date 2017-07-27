@@ -18,7 +18,10 @@ class Minion:
         self.mac = hex(getnode())
         self.platform = platform()
         self.settings = settings
-        self.hashcode = None
+        try:
+            self.hashcode = settings['hashcode']
+        except KeyError:
+            self.hashcode = None
         self.available_commands = []
 
     def register(self):
@@ -31,12 +34,16 @@ class Minion:
             url = "http://"
         url += self.settings['master_ip'] + ':' + str(self.settings['master_port']) + self.settings['register']
         payload = {"platform": self.platform, "mac": str(self.mac), "available": json.dumps(self.available_commands)}
+        if self.hashcode is not None:
+            payload["hashcode"] = self.hashcode
         try:
             r = requests.post(url, json=payload)
             if r.status_code == 201:
+                # If Server accepts it...
                 self.hashcode = r.json()['hashcode']
         except requests.ConnectionError as e:
             print("Connection Error:\t%s" % e.response)
+            return 1
         return 0
 
     def get_tasks(self):
