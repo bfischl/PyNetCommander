@@ -41,7 +41,7 @@ class Minion:
 
     def get_tasks(self):
         """Connects to the Tasking Server and returns JSON of tasks
-        :return:
+        :return: dict JSON of tasks
         """
         if self.settings['https'] == 1:
             url = "https://"
@@ -60,6 +60,10 @@ class Minion:
         # TODO Implement Scheduling
         pass
 
-    def execute_task(task):
+    def execute_task(self,task):
         # TODO Implement Task Execution
         print(task.cmd)
+
+    def update_results(self,task,results):
+        # TODO Update server with Command Execution
+        task.results = results

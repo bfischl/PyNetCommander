@@ -17,5 +17,5 @@ if __name__ == "__main__" :
     me = Minion(settings)
     me.register()
     tasks = me.get_tasks()
-    for task in tasks:
-        me.schedule_task(task)
+    #for task in tasks:
+    #    me.schedule_task(task)
