@@ -3,16 +3,17 @@ Execute scheduled tasks on many computers, regardless of Operating System.
 Flexibly create your own task libraries.
 
 The purpose of this program is to simulate user interaction in a dynamic forensics testing environment.
+
 v0.01 Basic Tasks
 
 * openfile
-* cmd
+* exec_cmd
 * download_file
 * visit_site
 
 ## Master
 Maintains a roster of minions and their individual tasks. Maintains the results of
-past tasks.
+past tasks. Runs a web server that can add and delete tasks.
 
 ## Minion
 Each minion must first register with the master and register its capabilities.
